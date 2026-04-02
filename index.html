@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Registro de Usuario</h1>
+        <form id="registroForm" action="mailto:unaprueba" method="POST">
+            
+            <div class="form-group">
+                <label for="tipo_doc">Tipo de documento:</label>
+                <select name="tipo_doc" id="tipo_doc" required>
+                    <option value="cc">Cédula de Ciudadanía</option>
+                    <option value="ti">Tarjeta de Identidad</option>
+                    <option value="ce">Cédula de Extranjería</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="documento">Número de documento:</label>
+                <input type="number" name="documento" id="documento" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nombres">Nombres:</label>
+                <input type="text" name="nombres" id="nombres" minlength="3" maxlength="64" required>
+            </div>
+
+            <div class="form-group">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" name="apellidos" id="apellidos" minlength="3" maxlength="64" required>
+            </div>
+
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" name="direccion" id="direccion" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tel_fijo">Teléfono fijo:</label>
+                <input type="tel" name="tel_fijo" id="tel_fijo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tel_celular">Teléfono celular:</label>
+                <input type="tel" name="tel_celular" id="tel_celular" required>
+            </div>
+
+            <div class="form-group">
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" name="correo" id="correo" required 
+                       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[._\-])[a-zA-Z0-9._\-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                       title="Debe contener @, dominio, mayúsculas, minúsculas y al menos un símbolo (._-)">
+            </div>
+
+            <div class="form-group">
+                <label for="usuario">Usuario:</label>
+                <input type="text" name="usuario" id="usuario" required minlength="3" maxlength="16" 
+                       pattern="^[a-zA-Z]+[0-9]{0,2}$" 
+                       title="Solo letras, con un máximo de dos números al final">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required minlength="16" maxlength="16"
+                       pattern="(?=.*[A-Z])(?=.*[a-z].*[a-z])(?=.*[0-9].*[0-9].*[0-9].*[0-9].*[0-9])(?=.*[?\-\+/8\$]).{16}"
+                       title="Exactamente 16 caracteres: 1 Mayús, 2 Minús, 5 Números y 1 Especial (? - + / 8 $)">
+            </div>
+
+            <div class="form-group">
+                <label for="fecha">Fecha de inscripción:</label>
+                <input type="date" name="fecha" id="fecha" min="2026-02-15" max="2026-03-06" required>
+            </div>
+
+            <div class="hobbies-section">
+                <label><b>Hobbies (selecciona al menos uno):</b></label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="hobby" value="Programacion"> Programación</label>
+                    <label><input type="checkbox" name="hobby" value="Deportes"> Deportes</label>
+                    <label><input type="checkbox" name="hobby" value="Musica"> Música</label>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <input type="submit" class="btn btn-submit" value="Enviar">
+                <input type="reset" class="btn btn-reset" value="Limpiar">
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
